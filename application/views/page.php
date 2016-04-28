@@ -1,6 +1,8 @@
 <html>
 <head>
-	<title></title>
+	<title> Belt </title>
+		<meta charset="utf-8">
+		<meta name="description" content="The text here describes what the webpage is about."/>	
 </head>
 <body>
 	<h2>Welcome <?php echo $this->session->userdata('alias') ?></h2>
@@ -20,7 +22,7 @@
 					    <td><?php echo $user['alias'] ?></td>
 					    <td><a href="/friends/addfriend/<?php echo $this->session->userdata('id')?>/<?php echo $user['id']?>">Add Friend</a></td>
 					  </tr>
-				  <? endforeach; ?>
+				  <?php endforeach; ?>
 		</table>
 
 		<h3>Your Friends</h3>
@@ -36,7 +38,7 @@
 					    <td><a href="/friends/deletefriend/<?php echo $this->session->userdata('id')?>/<?php echo $user['friended_id']?>">Remove Friend</a></td>
 					    <td><a href="/friends/viewfriend/<?php echo $user['friended_id']?>">View Profile</a></td>
 					  </tr>
-				  <? endforeach; ?>
+				  <?php endforeach; ?>
 					
 				  <?php foreach($added as $user): ?>
 					  <tr>
@@ -46,7 +48,7 @@
 					   	 <td>Added You</td>
 			
 					  </tr>
-				 <? endforeach; ?>
+				 <?php endforeach; ?>
 		</table>
 
 
