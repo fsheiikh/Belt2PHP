@@ -40,14 +40,6 @@ class User extends CI_Model {
 		return $this->db->query($query, $values)->result_array();
 	}
 
-	// 	public function getfriends($id)
-	// {
-	// 	$query = "SELECT * FROM users 
-	// 			  LEFT JOIN friends ON users.id = friends.friended_id
- //                  WHERE friends.friended_id = ? ";
-	// 	$values = array($id);
-	// 	return $this->db->query($query, $values)->result_array();
-	// }
 
 		public function viewfriend($id)
 	{
@@ -85,32 +77,16 @@ class User extends CI_Model {
 		return $this->db->query($query, $values)->result_array();
 	}
 
-	// $query = "SELECT trips.*, users.username
-	// 			  FROM trips
-	// 		      LEFT JOIN users ON trips.user_id = users.id
-	// 		      LEFT JOIN joined ON trips.id = joined.trip_id
-	// 		      WHERE trips.id NOT IN (SELECT trips.id
-	// 			  FROM joined
-	// 			  LEFT JOIN users ON joined.user_id = users.id
-	// 			  LEFT JOIN trips ON joined.trip_id = trips.id
-	// 			  WHERE joined.user_id = ?) ";
+//Below is the not in query i attempted to get my added friends to not show up. I ran out of time, but i added what i had 
 
 
+// //select users.*
+// from users
+// left join friends on users.id = friends.befriend_id
+// Where friends.befriend_id NOT IN (SELECT friends.friended_id
+// 								FROM friends
+//                                 where friends.befriend_id =4)
 
-	// public function getall($id)
-	// {
-	// 	$query = "SELECT trips.*, users.username
-	// 			  FROM trips
-	// 		      LEFT JOIN users ON trips.user_id = users.id
-	// 		      LEFT JOIN joined ON trips.id = joined.trip_id
-	// 		      WHERE trips.id NOT IN (SELECT trips.id
-	// 			  FROM joined
-	// 			  LEFT JOIN users ON joined.user_id = users.id
-	// 			  LEFT JOIN trips ON joined.trip_id = trips.id
-	// 			  WHERE joined.user_id = ?) ";
-	// 	$values = array($id);
-	// 	return $this->db->query($query, $values)->result_array();
-	// }
 
 	
 
