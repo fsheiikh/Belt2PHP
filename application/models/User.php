@@ -17,9 +17,15 @@ class User extends CI_Model {
 
 		public function getall($id)
 	{
-		$query = "SELECT * FROM users 
-					WHERE users.id != ?";
-		$values = array($id);
+		$query = "SELECT users.alias, users.id
+				  from users 
+				  LEFT JOIN friends ON users.id = friends.friended_id
+				  WHERE  users.id !=? AND users.id NOT IN (SELECT users.id
+			   	  from users
+				  LEFT JOIN friends ON users.id = friends.friended_id
+                  WHERE friends.befriend_id = ?)";
+
+		$values = array($id, $id);
 		return $this->db->query($query, $values)->result_array();
 	}
 
@@ -80,12 +86,12 @@ class User extends CI_Model {
 //Below is the not in query i attempted to get my added friends to not show up. I ran out of time, but i added what i had 
 
 
-// //select users.*
-// from users
-// left join friends on users.id = friends.befriend_id
-// Where friends.befriend_id NOT IN (SELECT friends.friended_id
-// 								FROM friends
-//                                 where friends.befriend_id =4)
+// SELECT * FROM users 
+// LEFT JOIN friends ON users.id = friends.friended_id
+// WHERE  users.id !=? AND users.id NOt in (SELECT users.id
+// 			   	  from users
+// 				  LEFT JOIN friends ON users.id = friends.friended_id
+//                   WHERE friends.befriend_id = ?)
 
 
 	

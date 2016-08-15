@@ -8,7 +8,7 @@ class Friends extends CI_Controller {
 		parent::__construct();
 		$this->load->model('User');
 		$this->load->library('form_validation');
-		$this->output->enable_profiler(TRUE);
+		// $this->output->enable_profiler(TRUE);
 
 
 
